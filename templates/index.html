@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Shows</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('add_show') }}">Add Show</a></li>
+                    <li><a href="{{ url_for('articles') }}">Articles</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to Fashion Shows</h1>
+                <p>Discover the latest fashion shows in your neighborhood.</p>
+                <a href="#shows" class="btn">View Shows</a>
+            </div>
+        </section>
+        <section id="shows">
+            <h2>Upcoming Shows</h2>
+            <div class="show-container">
+                {% for show in shows %}
+                    <div class="show info-box">
+                        <h3>{{ show.neighborhood }}</h3>
+                        <p><strong>Date:</strong> {{ show.date }}</p>
+                        <p><strong>Info:</strong> {{ show.info }}</p>
+                        <p><strong>Address:</strong> {{ show.address }}</p>
+                        <a href="{{ url_for('register', show_id=loop.index) }}" class="btn">Register</a>
+                        <a href="{{ url_for('view_registrations', show_id=loop.index) }}" class="btn">View Registrations</a>
+                        <a href="{{ url_for('vendors_view', show_id=loop.index) }}" class="btn">Vendors</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Fashion Shows. All rights reserved.</p>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
