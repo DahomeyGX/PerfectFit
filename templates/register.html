@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register for Show</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .center-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-container a {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .btn-container a:hover {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Register for Show</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('add_show') }}">Add Show</a>
+            <a href="{{ url_for('articles') }}">Articles</a>
+        </nav>
+    </header>
+    <div class="center-form">
+        <div class="form-container">
+            <h2>Register</h2>
+            <form action="{{ url_for('register', show_id=show_id) }}" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Register</button>
+            </form>
+            <div class="btn-container">
+                <a href="{{ url_for('view_registrations', show_id=show_id) }}">View Registrations</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
