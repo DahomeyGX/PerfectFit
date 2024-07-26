@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Fashion Show</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="/"><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/add_show">Add Show</a></li>
+                    <li><a href="/scan-barcode">Scan Barcode</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Add a New Fashion Show</h1>
+        <form method="POST" action="{{ url_for('add_show') }}">
+            <label for="neighborhood">Neighborhood:</label>
+            <input type="text" id="neighborhood" name="neighborhood" required><br>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required><br>
+            <label for="info">Information:</label>
+            <textarea id="info" name="info" required></textarea><br>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required><br>
+            <button type="submit">Add Show</button>
+        </form>
+    </div>
+    <footer>
+        <ul>
+            <li><a href="/">Home</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
