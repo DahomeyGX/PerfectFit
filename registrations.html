@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Registrations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Registrations</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('add_show') }}">Add Show</a>
+            <a href="{{ url_for('articles') }}">Articles</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Registrations for Show</h2>
+        <ul>
+            {% for registration in registrations %}
+                <li>
+                    <strong>Name:</strong> {{ registration.name }} <br>
+                    <strong>Email:</strong> {{ registration.email }}
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>

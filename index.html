@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PerfectFit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="/"><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#shows">Shows</a></li>
+                    <li><a href="/articles">Articles</a></li>
+                    <li><a href="/add_show">Add Show</a></li>
+                    <li><a href="/scan-barcode">Scan Barcode</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Welcome to PerfectFit</h1>
+            <p>Your go-to platform for local fashion shows and eco-friendly fashion tips.</p>
+            <a href="/scan-barcode" class="btn">Scan Barcode</a>
+        </div>
+    </div>
+
+    <div class="container" id="shows">
+        <h2>Upcoming Fashion Shows</h2>
+        <div class="show-container">
+            {% if shows %}
+                <!-- Debugging Output -->
+                <p>Number of Shows: {{ shows|length }}</p>
+                {% for show in shows %}
+                    <div class="show">
+                        <h3>{{ show.neighborhood }}</h3>
+                        <p>Date: {{ show.date }}</p>
+                        <p>Location: {{ show.address }}</p>
+                        <p>Information: {{ show.info }}</p>
+                        <a href="{{ url_for('register', show_id=loop.index0) }}" class="btn">Register</a>
+                        <a href="{{ url_for('vendors_view', show_id=loop.index0) }}" class="btn">Vendors</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No shows available. Please add a show.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <footer>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#shows">Shows</a></li>
+            <li><a href="/articles">Articles</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

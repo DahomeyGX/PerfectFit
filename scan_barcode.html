@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Barcode</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="/"><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/shows">Shows</a></li>
+                    <li><a href="/articles">Articles</a></li>
+                    <li><a href="/add_show">Add Show</a></li>
+                    <li><a href="/scan-barcode">Scan Barcode</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container" id="barcode-scanner">
+        <h1>Scan Barcode</h1>
+        <form method="post" action="{{ url_for('scan_barcode') }}">
+            <label for="barcode">Enter Barcode:</label>
+            <input type="text" id="barcode" name="barcode" required>
+            <button type="submit">Scan</button>
+        </form>
+        <div id="result-message">
+            {% if result_message %}
+                {{ result_message }}
+            {% endif %}
+        </div>
+    </div>
+
+    <footer>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/shows">Shows</a></li>
+            <li><a href="/articles">Articles</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
