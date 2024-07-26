@@ -57,10 +57,7 @@ header nav ul li a:hover {
 
 /* Hero Section */
 .hero {
-    background-image: url("hero.jpg");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+    background: url("hero.jpg") no-repeat center center/cover;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -121,7 +118,7 @@ header nav ul li a:hover {
     padding: 20px;
     width: 300px;
     transition: transform 0.3s, opacity 0.3s;
-    opacity: 0;
+    opacity: 1; /* Make content initially hidden */
     transform: translateY(20px);
 }
 
@@ -225,3 +222,60 @@ footer ul li a {
 footer ul li a:hover {
     text-decoration: underline;
 }
+
+/* Barcode Scanner Styles */
+#barcode-scanner {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 2px solid #ddd;
+    padding: 10px;
+}
+
+#result-message {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+.barcode-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.barcode-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.barcode-container label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.barcode-container input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.barcode-container button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.barcode-container button:hover {
+    background-color: #333;
+}
+
