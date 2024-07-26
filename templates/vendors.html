@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendors for Show</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function addItemField() {
+            var container = document.getElementById('items-container');
+            var itemField = document.createElement('input');
+            itemField.type = 'text';
+            itemField.name = 'items[]';
+            itemField.placeholder = 'Item';
+            itemField.required = true;
+
+            var priceField = document.createElement('input');
+            priceField.type = 'text';
+            priceField.name = 'prices[]';
+            priceField.placeholder = 'Price';
+            priceField.required = true;
+
+            container.appendChild(itemField);
+            container.appendChild(priceField);
+            container.appendChild(document.createElement('br'));
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Vendors for Show</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('add_show') }}">Add Show</a>
+            <a href="{{ url_for('articles') }}">Articles</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Add Vendor</h2>
+        <form action="{{ url_for('vendors_view', show_id=show_id) }}" method="post">
+            <label for="vendor_name">Vendor Name:</label>
+            <input type="text" id="vendor_name" name="vendor_name" required>
+            <div id="items-container">
+                <label>Items:</label><br>
+                <input type="text" name="items[]" placeholder="Item" required>
+                <input type="text" name="prices[]" placeholder="Price" required>
+                <br>
+            </div>
+            <button type="button" onclick="addItemField()">Add More Items</button>
+            <button type="submit">Add Vendor</button>
+        </form>
+        <h2>Vendors</h2>
+        <ul>
+            {% for vendor in vendors %}
+                <li>
+                    <strong>Vendor Name:</strong> {{ vendor.vendor_name }} <br>
+                    <strong>Items:</strong>
+                    <ul>
+                        {% for item, price in vendor.items %}
+                            <li>{{ item }} - {{ price }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>
