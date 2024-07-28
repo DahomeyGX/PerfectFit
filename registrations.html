@@ -3,28 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Registrations</title>
+    <title>Registrations for Show</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .registrations-container {
+            margin-top: 100px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: #f8f8f8;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        ul li strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 5px;
+        }
+
+        nav a:hover {
+            background: #333;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Registrations</h1>
+        <h1>Registrations for Show</h1>
         <nav>
             <a href="{{ url_for('index') }}">Home</a>
             <a href="{{ url_for('add_show') }}">Add Show</a>
             <a href="{{ url_for('articles') }}">Articles</a>
         </nav>
     </header>
-    <main>
-        <h2>Registrations for Show</h2>
+    <div class="registrations-container">
+        <h2>Registrations</h2>
         <ul>
             {% for registration in registrations %}
                 <li>
-                    <strong>Name:</strong> {{ registration.name }} <br>
+                    <strong>Name:</strong> {{ registration.name }}
                     <strong>Email:</strong> {{ registration.email }}
                 </li>
             {% endfor %}
         </ul>
-    </main>
+    </div>
 </body>
 </html>
