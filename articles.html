@@ -3,40 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Helpful Articles</title>
+    <title>Add Fashion Show</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <header>
-        <h1>Helpful Articles on Fast Fashion</h1>
-        <nav>
-            <a href="{{ url_for('index') }}">Home</a>
-            <a href="{{ url_for('add_show') }}">Add Show</a>
-            <a href="{{ url_for('articles') }}">Articles</a>
-        </nav>
+        <div class="container">
+            <div class="logo">
+                <a href="/"><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/add_show">Add Show</a></li>
+                    <li><a href="/scan-barcode">Scan Barcode</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <main>
-        <h2>Articles on Fast Fashion</h2>
-        <section>
-            <h3>What is Fast Fashion?</h3>
-            <p>Fast fashion refers to the rapid production of inexpensive clothing to keep up with the latest trends. This often leads to environmental and ethical issues, including waste and poor working conditions.</p>
-        </section>
-        <section>
-            <h3>How to Repurpose Your Clothes</h3>
-            <p>Repurposing clothes can extend their lifespan and reduce waste. Consider these tips:</p>
-            <ul>
-                <li>Turn old jeans into a trendy denim jacket or a bag.</li>
-                <li>Transform worn-out t-shirts into cleaning rags or cushion covers.</li>
-                <li>Upcycle old sweaters into scarves or mittens.</li>
-            </ul>
-        </section>
-        <section>
-            <h3>Resources</h3>
-            <ul>
-                <li><a href="https://example.com/article1" target="_blank">The Impact of Fast Fashion on the Environment</a></li>
-                <li><a href="https://example.com/article2" target="_blank">Creative Ways to Repurpose Old Clothes</a></li>
-            </ul>
-        </section>
-    </main>
+    <div class="container">
+        <h1>Add a New Fashion Show</h1>
+        <form method="POST" action="{{ url_for('add_show') }}">
+            <label for="neighborhood">Neighborhood:</label>
+            <input type="text" id="neighborhood" name="neighborhood" required><br>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required><br>
+            <label for="info">Information:</label>
+            <textarea id="info" name="info" required></textarea><br>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required><br>
+            <button type="submit">Add Show</button>
+        </form>
+    </div>
+    <footer>
+        <ul>
+            <li><a href="/">Home</a></li>
+        </ul>
+    </footer>
 </body>
 </html>
