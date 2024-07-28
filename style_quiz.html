@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .style-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .style-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .style-card h3 {
+            margin-top: 0;
+        }
+        .style-card img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        main {
+            margin-top: 100px; /* Moves everything down by 100px */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Style Quiz</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('add_show') }}">Add Show</a>
+            <a href="{{ url_for('articles') }}">Articles</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Take the Style Quiz</h2>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0LVyw8pryhb35uSBgcxifYw9KPt72ojmAQP3ZQJ0NpadnSA/viewform?usp=sf_link" class="btn" target="_blank">Go to Quiz</a>
+        <h2>Style Descriptions</h2>
+        <div class="style-container">
+            <div class="style-card">
+                <img src="{{ url_for('static', filename='images/casual.jpg') }}" alt="Casual Style">
+                <h3>Casual</h3>
+                <p>Comfortable and laid-back. Think jeans, t-shirts, and sneakers. This style is all about ease and practicality.</p>
+            </div>
+            <div class="style-card">
+                <img src="{{ url_for('static', filename='images/bohemian.jpg') }}" alt="Bohemian (Boho) Style">
+                <h3>Bohemian (Boho)</h3>
+                <p>A free-spirited style that often includes flowing fabrics, ethnic prints, and vintage or handcrafted items. It emphasizes individuality and creativity.</p>
+            </div>
+            <div class="style-card">
+                <img src="{{ url_for('static', filename='images/chic.jpg') }}" alt="Chic Style">
+                <h3>Chic</h3>
+                <p>Sophisticated and elegant. This style often includes tailored pieces, neutral colors, and classic cuts. It's polished and refined.</p>
+            </div>
+            <div class="style-card">
+                <img src="{{ url_for('static', filename='images/streetwear.jpg') }}" alt="Streetwear Style">
+                <h3>Streetwear</h3>
+                <p>Urban and trendy, this style incorporates elements like oversized hoodies, graphic tees, and sneakers. It's heavily influenced by skate and hip-hop culture.</p>
+            </div>
+            <div class="style-card">
+                <img src="{{ url_for('static', filename='images/preppy.jpg') }}" alt="Preppy Style">
+                <h3>Preppy</h3>
+                <p>Inspired by the attire of Ivy League students, this style includes items like blazers, chinos, and polo shirts. It’s often associated with a clean, put-together look.</p>
+            </div>
+            <div class="style-card">
+                <img src="{{ url_for('static', filename='images/gothic.jpg') }}" alt="Gothic Style">
+                <h3>Gothic</h3>
+                <p>Dark and dramatic, often featuring black clothing, leather, lace, and heavy makeup. This style is influenced by goth music and subcultures.</p>
+            </div>
+            <div class="style-card">
+                <img src="{{ url_for('static', filename='images/vintage.jpg') }}" alt="Vintage/Retro Style">
+                <h3>Vintage/Retro</h3>
+                <p>Fashion inspired by past decades, whether it’s the 1920s flapper dresses, 1950s rockabilly, or 1980s bold prints. It often includes authentic vintage pieces or modern interpretations.</p>
+            </div>
+            <div class="style-card">
+                <img src="{{ url_for('static', filename='images/minimalist.jpg') }}" alt="Minimalist Style">
+                <h3>Minimalist</h3>
+                <p>Focuses on simplicity and functionality with a preference for clean lines, neutral colors, and understated designs. It's all about less being more.</p>
+            </div>
+            <div class="style-card">
+                <img src="{{ url_for('static', filename='images/avant-garde.jpg') }}" alt="Avant-Garde Style">
+                <h3>Avant-Garde</h3>
+                <p>Experimental and unconventional. This style pushes boundaries and challenges traditional fashion norms with innovative and sometimes abstract designs.</p>
+            </div>
+            <div class="style-card">
+                <img src="{{ url_for('static', filename='images/formal.jpg') }}" alt="Formal/Business Style">
+                <h3>Formal/Business</h3>
+                <p>Professional and polished, including suits, dress shirts, and formal shoes. It's often associated with office wear and important events.</p>
+            </div>
+            <div class="style-card">
+                <img src="{{ url_for('static', filename='images/athleisure.jpg') }}" alt="Athleisure Style">
+                <h3>Athleisure</h3>
+                <p>Combines athletic wear with casual style, like yoga pants, leggings, and sporty tops that can be worn both for exercise and everyday activities.</p>
+            </div>
+            <div class="style-card">
+                <img src="{{ url_for('static', filename='images/eclectic.jpg') }}" alt="Eclectic Style">
+                <h3>Eclectic</h3>
+                <p>A mix-and-match style that combines various elements from different styles, creating a unique and often personalized look.</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
