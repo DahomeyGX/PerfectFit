@@ -36,33 +36,39 @@
         </nav>
     </header>
     <main>
-        <h2>Add Vendor</h2>
-        <form action="{{ url_for('vendors_view', show_id=show_id) }}" method="post">
-            <label for="vendor_name">Vendor Name:</label>
-            <input type="text" id="vendor_name" name="vendor_name" required>
-            <div id="items-container">
-                <label>Items:</label><br>
-                <input type="text" name="items[]" placeholder="Item" required>
-                <input type="text" name="prices[]" placeholder="Price" required>
-                <br>
-            </div>
-            <button type="button" onclick="addItemField()">Add More Items</button>
-            <button type="submit">Add Vendor</button>
-        </form>
-        <h2>Vendors</h2>
-        <ul>
-            {% for vendor in vendors %}
-                <li>
-                    <strong>Vendor Name:</strong> {{ vendor.vendor_name }} <br>
-                    <strong>Items:</strong>
-                    <ul>
-                        {% for item, price in vendor.items %}
-                            <li>{{ item }} - {{ price }}</li>
-                        {% endfor %}
-                    </ul>
-                </li>
-            {% endfor %}
-        </ul>
+        <section class="add-vendor">
+            <h2>Add Vendor</h2>
+            <form action="{{ url_for('vendors_view', show_id=show_id) }}" method="post">
+                <label for="vendor_name">Vendor Name:</label>
+                <input type="text" id="vendor_name" name="vendor_name" required>
+                <div id="items-container">
+                    <label>Items:</label><br>
+                    <input type="text" name="items[]" placeholder="Item" required>
+                    <input type="text" name="prices[]" placeholder="Price" required>
+                    <br>
+                </div>
+                <button type="button" onclick="addItemField()">Add More Items</button>
+                <button type="submit">Add Vendor</button>
+            </form>
+        </section>
+        <section class="vendor-list">
+            <h2>Vendors</h2>
+            <ul>
+                {% for vendor in vendors %}
+                    <li class="vendor">
+                        <div class="vendor-details">
+                            <strong>Vendor Name:</strong> {{ vendor['vendor_name'] }} <br>
+                            <strong>Items:</strong>
+                            <ul class="items-list">
+                                {% for item, price in vendor['items'] %}
+                                    <li>{{ item }} - {{ price }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
     </main>
 </body>
 </html>
