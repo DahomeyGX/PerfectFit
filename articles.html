@@ -3,42 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Fashion Show</title>
+    <title>Articles</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 80px 20px 20px; /* Adjusted to account for fixed header */
+            text-align: center;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .tips-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .tip {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: left;
+        }
+
+        .tip img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .tip-content {
+            margin-left: 20px;
+        }
+
+        .tip-content h3 {
+            margin-top: 0;
+        }
+
+        .learn-more {
+            margin-top: 40px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .learn-more h2 {
+            margin-bottom: 20px;
+        }
+
+        .learn-more a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+
+        .learn-more a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo">
-                <a href="/"><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo"></a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/add_show">Add Show</a></li>
-                    <li><a href="/scan-barcode">Scan Barcode</a></li>
-                </ul>
-            </nav>
-        </div>
+        <h1>Articles</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('add_show') }}">Add Show</a>
+            <a href="{{ url_for('scan_barcode') }}">Scan Barcode</a>
+        </nav>
     </header>
-    <div class="container">
-        <h1>Add a New Fashion Show</h1>
-        <form method="POST" action="{{ url_for('add_show') }}">
-            <label for="neighborhood">Neighborhood:</label>
-            <input type="text" id="neighborhood" name="neighborhood" required><br>
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required><br>
-            <label for="info">Information:</label>
-            <textarea id="info" name="info" required></textarea><br>
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address" required><br>
-            <button type="submit">Add Show</button>
-        </form>
-    </div>
-    <footer>
-        <ul>
-            <li><a href="/">Home</a></li>
-        </ul>
-    </footer>
+    <main>
+        <div class="section">
+            <h2>Tips on How to Reuse Clothes</h2>
+            <div class="tips-container">
+                <div class="tip">
+                    <img src="path/to/image1.jpg" alt="Tip 1">
+                    <div class="tip-content">
+                        <h3>Revamp Your Old Jeans</h3>
+                        <p>Transform your old jeans into stylish new shorts or a trendy bag. A little creativity can go a long way!</p>
+                    </div>
+                </div>
+                <div class="tip">
+                    <img src="path/to/image2.jpg" alt="Tip 2">
+                    <div class="tip-content">
+                        <h3>DIY Accessories</h3>
+                        <p>Use old fabric scraps to make unique accessories like headbands or scarves. Personalize your wardrobe with DIY charm!</p>
+                    </div>
+                </div>
+                <div class="tip">
+                    <img src="path/to/image3.jpg" alt="Tip 3">
+                    <div class="tip-content">
+                        <h3>Swap Clothes with Friends</h3>
+                        <p>Organize a clothing swap with friends to refresh your wardrobe without spending money. It's a fun and eco-friendly way to update your style!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="learn-more">
+            <h2>Learn More About Fast Fashion</h2>
+            <a href="https://www.example.com/article1" target="_blank">Understanding Fast Fashion: The Basics</a>
+            <a href="https://www.example.com/article2" target="_blank">The Environmental Impact of Fast Fashion</a>
+            <a href="https://www.example.com/article3" target="_blank">How to Make Eco-Friendly Choices in Fashion</a>
+        </div>
+    </main>
 </body>
 </html>
